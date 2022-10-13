@@ -1,7 +1,7 @@
 name: okid_obm_material_widget
 description: A new Flutter package project.
 version: 0.0.1
-homepage:
+homepage: https://github.com/Danum-Dev/okid_obm_material_widget
 
 environment:
   sdk: '>=2.18.2 <3.0.0'
