@@ -1,6 +1,6 @@
 name: okid_obm_material_widget
 description: Danum dev widget and function template.
-version: 0.0.3
+version: 0.0.4
 homepage: https://github.com/Danum-Dev/okid_obm_material_widget
 
 environment:
