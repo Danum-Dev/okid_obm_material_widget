@@ -35,7 +35,6 @@ class ObmForm extends StatelessWidget {
     this.prefixText,
     this.enabled,
     this.lengthLimit,
-    this.floatingLabelBehavior,
   }) : super(key: key);
   TextEditingController? controller;
   FocusNode? focusTo;
@@ -55,7 +54,6 @@ class ObmForm extends StatelessWidget {
   String? prefixText;
   bool? enabled;
   int? lengthLimit;
-  FloatingLabelBehavior? floatingLabelBehavior;
 
   @override
   Widget build(BuildContext context) {
@@ -72,15 +70,15 @@ class ObmForm extends StatelessWidget {
             autofocus: autoFocus ?? false,
             enabled: enabled ??= true,
             decoration: InputDecoration(
+              counterText: '',
               fillColor: Colors.grey[100],
               filled: enabled == false ? true : false,
-              floatingLabelBehavior:
-                  floatingLabelBehavior ?? FloatingLabelBehavior.auto,
+              floatingLabelBehavior: FloatingLabelBehavior.always,
               contentPadding: const EdgeInsets.symmetric(
                 vertical: 10.0,
                 horizontal: 20.0,
               ),
-              labelText: labelText,
+              labelText: labelText ?? 'Form',
               labelStyle: const TextStyle(
                 color: fontColor,
                 fontSize: 16.0,
@@ -88,7 +86,7 @@ class ObmForm extends StatelessWidget {
               ),
               hintText: hintText ?? 'Form',
               hintStyle: const TextStyle(
-                color: hintColor,
+                color: Color(0xFF828282),
                 fontSize: 16.0,
                 fontWeight: FontWeight.w400,
                 fontStyle: FontStyle.italic,
@@ -112,7 +110,7 @@ class ObmForm extends StatelessWidget {
             onFieldSubmitted: (v) {
               focusTo != null
                   ? FocusScope.of(context).requestFocus(focusTo)
-                  : FocusScope.of(context).unfocus();
+                  : null;
             },
             inputFormatters: isCurrency!
                 ? [
@@ -129,13 +127,12 @@ class ObmForm extends StatelessWidget {
             validator: validator,
             autofocus: autoFocus ?? false,
             decoration: InputDecoration(
-              floatingLabelBehavior:
-                  floatingLabelBehavior ?? FloatingLabelBehavior.auto,
+              floatingLabelBehavior: FloatingLabelBehavior.always,
               contentPadding: const EdgeInsets.symmetric(
                 vertical: 10.0,
                 horizontal: 20.0,
               ),
-              labelText: labelText,
+              labelText: labelText ?? 'Form',
               labelStyle: const TextStyle(
                 color: fontColor,
                 fontSize: 16.0,
@@ -143,7 +140,7 @@ class ObmForm extends StatelessWidget {
               ),
               hintText: hintText ?? 'Form',
               hintStyle: const TextStyle(
-                color: hintColor,
+                color: Color(0xFF828282),
                 fontSize: 16.0,
                 fontWeight: FontWeight.w400,
                 fontStyle: FontStyle.italic,
@@ -155,9 +152,7 @@ class ObmForm extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10.0),
                 borderSide: const BorderSide(color: Colors.grey),
               ),
-              prefixIcon: prefixIcon,
               suffixIcon: suffixIcon ?? const SizedBox(),
-              prefixText: prefixText,
               prefixStyle: const TextStyle(color: fontColor),
             ),
             onChanged: onChanged,
