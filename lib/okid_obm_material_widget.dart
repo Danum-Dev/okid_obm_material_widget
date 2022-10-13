@@ -112,7 +112,7 @@ class ObmForm extends StatelessWidget {
             onFieldSubmitted: (v) {
               focusTo != null
                   ? FocusScope.of(context).requestFocus(focusTo)
-                  : null;
+                  : FocusScope.of(context).unfocus();
             },
             inputFormatters: isCurrency!
                 ? [
