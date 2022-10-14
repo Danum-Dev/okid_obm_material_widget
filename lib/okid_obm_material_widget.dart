@@ -70,7 +70,6 @@ class ObmForm extends StatelessWidget {
             autofocus: autoFocus ?? false,
             enabled: enabled ??= true,
             decoration: InputDecoration(
-              counterText: '',
               fillColor: Colors.grey[100],
               filled: enabled == false ? true : false,
               floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -154,6 +153,7 @@ class ObmForm extends StatelessWidget {
               ),
               suffixIcon: suffixIcon ?? const SizedBox(),
               prefixStyle: const TextStyle(color: fontColor),
+              prefixIcon: prefixIcon,
             ),
             onChanged: onChanged,
             textInputAction: textInputAction,
